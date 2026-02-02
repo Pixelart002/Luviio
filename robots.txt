@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# ChatGPT (OpenAI) ko allow karein
+User-agent: GPTBot
+Allow: /
+
+# Google AI (Gemini) ko allow karein
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl (Training Data ke liye)
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://www.luviio.in/sitemap.xml
