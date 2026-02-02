@@ -10,6 +10,21 @@
   <meta name="author" content="Luviio Team">
   <link rel="canonical" href="https://www.luviio.in/">
   
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self'; 
+    script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; 
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; 
+    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; 
+    connect-src 'self' https://enqcujmzxtrbfkaungpm.supabase.co; 
+    img-src 'self' data:;
+    object-src 'none'; 
+    base-uri 'self';
+  ">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <meta http-equiv="X-Frame-Options" content="DENY">
+
   <meta property="og:type" content="website">
   <meta property="og:title" content="Luviio - The Operating System for Listings">
   <meta property="og:description" content="Rebuilding marketplace infrastructure. Verified & Secure.">
@@ -203,9 +218,7 @@
     button:hover { background: #e4e4e7; }
     button:disabled { opacity: 0.7; cursor: not-allowed; }
 
-    /* ===========================
-       NEW FOOTER STYLES
-    ============================ */
+    /* FOOTER STYLES */
     .site-footer {
       width: 100%;
       padding: 40px 20px;
@@ -240,7 +253,6 @@
       font-size: 0.85rem;
       font-weight: 500;
     }
-    
     .copyright span { color: #777; }
 
     /* MOBILE & LANDSCAPE */
@@ -256,9 +268,7 @@
       .input-wrapper { flex-direction: column; padding: 8px; background: transparent; border: none; }
       input { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; padding: 14px; text-align: center; }
       button { width: 100%; padding: 14px; }
-      
       h1 { margin-bottom: 16px; }
-      
       .site-footer { padding: 30px 20px; }
     }
 
@@ -297,9 +307,17 @@
     <p>We are rebuilding the marketplace infrastructure. Verified, API-first, and secure by design.</p>
 
     <div class="form-container">
-      <form id="waitlistForm">
+      <form id="waitlistForm" autocomplete="off">
         <div class="input-wrapper">
-          <input type="email" id="email" placeholder="name@company.com" required aria-label="Email Address">
+          <input 
+            type="email" 
+            id="email" 
+            placeholder="name@company.com" 
+            required 
+            aria-label="Email Address"
+            maxlength="80"
+            autocomplete="off"
+          >
           <button type="submit" id="submitBtn">Join Waitlist</button>
         </div>
       </form>
@@ -351,8 +369,9 @@
     const toast = document.getElementById('toast');
     const toastMsg = document.getElementById('toastMsg');
 
+    // Security Note: Use innerText instead of innerHTML to prevent XSS
     function showToast(message) {
-      toastMsg.innerText = message;
+      toastMsg.innerText = message; // Safe
       gsap.to(toast, { y: 0, autoAlpha: 1, duration: 0.4 });
       setTimeout(() => {
         gsap.to(toast, { y: 50, autoAlpha: 0, duration: 0.4 });
@@ -361,8 +380,11 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = document.getElementById('email').value.trim();
-      if (!email) return;
+      const emailInput = document.getElementById('email');
+      const email = emailInput.value.trim();
+      
+      // Basic Frontend Validation
+      if (!email || email.length > 80) return;
 
       const originalText = btn.innerText;
       btn.innerText = "Processing...";
