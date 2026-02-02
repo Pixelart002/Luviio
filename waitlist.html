@@ -12,14 +12,12 @@
   
   <meta property="og:type" content="website">
   <meta property="og:title" content="Luviio - The Operating System for Listings">
-  <meta property="og:description" content="Rebuilding marketplace infrastructure. Verified & Secure. Join the waitlist.">
+  <meta property="og:description" content="Rebuilding marketplace infrastructure. Verified & Secure.">
   <meta property="og:url" content="https://www.luviio.in/">
   <meta property="og:site_name" content="Luviio">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@LUVIIO_in">
-  <meta name="twitter:title" content="Luviio - The Operating System for Listings">
-  <meta name="twitter:description" content="Rebuilding marketplace infrastructure. Verified & Secure.">
-
+  
   <meta name="theme-color" content="#050505">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -93,7 +91,8 @@
         transition: background-color 5000s ease-in-out 0s;
     }
 
-    .pill, h1, p, .form-container, .social-footer { visibility: hidden; }
+    /* Hide elements initially for GSAP */
+    .pill, h1, p, .form-container, .site-footer { visibility: hidden; }
 
     @media (max-width: 480px) {
       input { font-size: 16px !important; }
@@ -133,13 +132,12 @@
     }
     .nav-link:hover { color: white; }
 
-    /* HERO SECTION (Centered) */
+    /* HERO SECTION */
     .hero {
-      flex: 1;
+      flex: 1; /* Pushes footer to bottom */
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       text-align: center;
-      /* Padding adjusted for visual centering */
-      padding: 100px 24px 40px 24px;
+      padding: 120px 24px 60px 24px;
       width: 100%; max-width: 1200px; margin: 0 auto;
     }
 
@@ -205,30 +203,54 @@
     button:hover { background: #e4e4e7; }
     button:disabled { opacity: 0.7; cursor: not-allowed; }
 
-    /* SOCIAL FOOTER */
-    .social-footer {
+    /* ===========================
+       NEW FOOTER STYLES
+    ============================ */
+    .site-footer {
+      width: 100%;
       padding: 40px 20px;
-      display: flex; gap: 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.03);
+      background: rgba(5,5,5,0.3);
+      backdrop-filter: blur(5px);
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 24px;
       justify-content: center;
-      margin-bottom: 20px;
     }
 
     .social-icon {
       color: var(--text-sec);
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       transition: color 0.3s, transform 0.3s;
     }
     .social-icon:hover { color: white; transform: translateY(-3px); }
 
-    /* MOBILE CENTERED FIX */
+    .copyright {
+      color: #555;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    .copyright span { color: #777; }
+
+    /* MOBILE & LANDSCAPE */
     @media (max-width: 480px) {
       nav { padding: 16px 20px; }
       
       .hero { 
-        padding-top: 100px; /* Thoda space nav ke liye */
-        align-items: center; /* Center horizontally */
-        text-align: center; /* Center text */
-        justify-content: center; /* Center vertically */
+        padding-top: 100px;
+        align-items: center; text-align: center; 
+        justify-content: center;
       }
       
       .input-wrapper { flex-direction: column; padding: 8px; background: transparent; border: none; }
@@ -236,7 +258,8 @@
       button { width: 100%; padding: 14px; }
       
       h1 { margin-bottom: 16px; }
-      .social-footer { padding: 20px; }
+      
+      .site-footer { padding: 30px 20px; }
     }
 
     /* TOAST */
@@ -249,7 +272,6 @@
       font-size: 0.9rem; color: var(--text-sec);
       z-index: 100; opacity: 0; transform: translateY(50px);
       max-width: 90vw;
-      /* Center toast on mobile */
       left: 0; right: 0; margin: 0 auto; width: fit-content;
     }
     .toast i { color: var(--accent); flex-shrink: 0; }
@@ -268,7 +290,7 @@
   </nav>
 
   <section class="hero">
-    <div class="pill">Waitlist Access Early 2024</div>
+    <div class="pill">Waitlist Access Early 2026</div>
     
     <h1>The Operating System <br> for Listings.</h1>
     
@@ -284,16 +306,24 @@
     </div>
   </section>
 
-  <footer class="social-footer">
-    <a href="https://x.com/LUVIIO_in" target="_blank" aria-label="X (Twitter)" class="social-icon">
-      <i class="fa-brands fa-x-twitter"></i>
-    </a>
-    <a href="https://www.instagram.com/luviio_in" target="_blank" aria-label="Instagram" class="social-icon">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-    <a href="https://www.youtube.com/@luviio_in" target="_blank" aria-label="YouTube" class="social-icon">
-      <i class="fa-brands fa-youtube"></i>
-    </a>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="https://x.com/LUVIIO_in" target="_blank" aria-label="X (Twitter)" class="social-icon">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com/luviio_in" target="_blank" aria-label="Instagram" class="social-icon">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/@luviio_in" target="_blank" aria-label="YouTube" class="social-icon">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+      
+      <div class="copyright">
+        &copy; 2026 Luviio Technologies. <span>All rights reserved.</span>
+      </div>
+    </div>
   </footer>
 
   <div class="toast" id="toast">
@@ -309,7 +339,7 @@
       .to("h1", { autoAlpha: 1, y: 0 }, "-=0.6")
       .to("p", { autoAlpha: 1, y: 0 }, "-=0.6")
       .to(".form-container", { autoAlpha: 1, y: 0 }, "-=0.6")
-      .to(".social-footer", { autoAlpha: 1, y: 0 }, "-=0.6");
+      .to(".site-footer", { autoAlpha: 1, y: 0 }, "-=0.6");
 
     // Supabase Configuration
     const SUPABASE_URL = 'https://enqcujmzxtrbfkaungpm.supabase.co';
