@@ -4,233 +4,107 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   
-  <title>Luviio - Building the Trust Layer for Marketplaces</title>
-  <meta name="description" content="Luviio is the new operating system for online listings. We verify, secure, and streamline marketplace infrastructure in India.">
-  <meta name="keywords" content="Luviio, Luviio.in, Real Estate Listings, Marketplace API, Verified Infrastructure, India Startup">
-  <meta name="author" content="Luviio Team">
-  <link rel="canonical" href="https://www.luviio.in/">
+  <title>Luviio - Building the Trust Layer</title>
   
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Luviio - The Future of Listings">
-  <meta property="og:description" content="Building the trust layer for the next generation of marketplaces.">
-  <meta property="og:url" content="https://www.luviio.in/">
-  <meta property="og:site_name" content="Luviio">
+  <meta name="description" content="Luviio is the new operating system for online listings.">
+  <meta property="og:image" content="https://www.luviio.in/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@LUVIIO_in">
+  <meta name="theme-color" content="#030303">
 
-  <meta name="theme-color" content="#050505">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Luviio",
-    "url": "https://www.luviio.in",
-    "description": "Luviio is rebuilding the marketplace infrastructure with a focus on verification and security.",
-    "sameAs": [
-      "https://www.instagram.com/luviio_in",
-      "https://x.com/LUVIIO_in",
-      "https://www.youtube.com/@luviio_in"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "contact@luviio.in",
-      "contactType": "customer support"
-    }
-  }
-  </script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
   <style>
-    /* ===========================
-       VARIABLES & RESET
-    ============================ */
-    :root {
-      --bg: #050505;
-      --surface: #0f0f0f;
-      --border: #27272a;
-      --primary: #ffffff;
-      --text-sec: #a1a1aa;
-      --accent: #3b82f6;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
-    }
-
-    html {
-      background-color: var(--bg);
-      overscroll-behavior: none;
-    }
+    /* --- CORE SETUP (MOBILE FIT) --- */
+    :root { --bg: #030303; --text: #fff; --gray: #888; --border: rgba(255,255,255,0.1); }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
     body {
-      background-color: var(--bg);
-      color: var(--primary);
-      font-family: 'Inter', sans-serif;
-      min-height: 100dvh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      height: 100dvh; /* Mobile Full Screen Lock */
+      width: 100vw;
+      overflow: hidden; 
+      display: flex; flex-direction: column;
+      position: relative;
     }
 
-    /* GRID BACKGROUND */
     .grid-bg {
       position: absolute; inset: 0; z-index: -1;
-      background-image: 
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 80px 80px;
-      opacity: 0.15;
-      mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
-      pointer-events: none;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 50px 50px; opacity: 0.08; pointer-events: none;
     }
 
-    /* NAV */
+    /* --- NAV --- */
     nav {
-      width: 100%; 
-      padding: 24px 40px;
+      width: 100%; padding: 20px 24px;
       display: flex; justify-content: space-between; align-items: center;
-      position: absolute; top: 0; z-index: 50;
+      position: absolute; top: 0; left: 0; z-index: 10;
     }
-    
-    .brand { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; }
-    .brand-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+    .brand { font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+    .brand-dot { width: 6px; height: 6px; background: white; border-radius: 50%; box-shadow: 0 0 10px white; }
+    .nav-contact { color: var(--gray); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
 
-    .nav-contact {
-      color: var(--text-sec); text-decoration: none; font-size: 0.9rem; font-weight: 500;
-      transition: color 0.3s;
-    }
-    .nav-contact:hover { color: white; }
-
-    /* HERO SECTION */
+    /* --- HERO --- */
     .hero {
-      flex: 1;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center;
-      padding: 140px 24px 60px 24px;
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
+      flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; padding: 0 20px; width: 100%;
     }
 
     .tagline {
-      color: var(--accent);
-      font-size: 0.9rem; font-weight: 600; letter-spacing: 2px;
-      text-transform: uppercase; margin-bottom: 24px;
-      opacity: 0; 
+      font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: #666;
+      border: 1px solid var(--border); padding: 4px 10px; border-radius: 50px;
+      margin-bottom: 20px; opacity: 0;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 8vw, 5.5rem);
+      font-size: clamp(2.5rem, 10vw, 5rem);
       line-height: 1.1; font-weight: 800; letter-spacing: -0.03em;
-      margin-bottom: 32px;
-      background: linear-gradient(to bottom, #fff 40%, #777 100%);
+      margin-bottom: 20px;
+      background: linear-gradient(to bottom, #fff, #888);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      max-width: 1000px;
-      text-wrap: balance;
       opacity: 0;
     }
 
     p {
-      font-size: clamp(1rem, 4vw, 1.35rem);
-      color: var(--text-sec); max-width: 600px; line-height: 1.6;
-      margin-bottom: 48px;
-      text-wrap: pretty;
+      color: var(--gray); font-size: clamp(0.95rem, 3vw, 1.2rem);
+      max-width: 500px; line-height: 1.5; margin-bottom: 35px;
       opacity: 0;
     }
 
-    /* CTA BUTTON */
+    /* CTA Button */
+    .cta-container { opacity: 0; }
     .cta-button {
-      background: var(--primary);
-      color: black;
-      font-weight: 600; font-size: 1rem;
-      padding: 18px 36px;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex; align-items: center; gap: 10px;
-      opacity: 0; transform: translateY(20px);
-      white-space: nowrap;
+      background: white; color: black;
+      padding: 16px 32px; border-radius: 100px;
+      text-decoration: none; font-weight: 700; font-size: 0.95rem;
+      display: flex; align-items: center; gap: 10px;
+      transition: transform 0.2s;
     }
+    .cta-button:active { transform: scale(0.95); }
 
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
-    }
-    
-    .cta-button i { font-size: 0.9em; transition: transform 0.3s; }
-    .cta-button:hover i { transform: translateX(4px); }
-
-    /* ===========================
-       PROFESSIONAL FOOTER STYLES
-    ============================ */
+    /* --- FOOTER --- */
     .site-footer {
-      width: 100%;
-      padding: 40px 20px;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.03);
-      background: rgba(5,5,5,0.3);
-      backdrop-filter: blur(5px);
-      /* Initially hidden for animation */
-      opacity: 0; 
+      width: 100%; padding: 20px; text-align: center;
+      border-top: 1px solid var(--border);
+      background: rgba(3,3,3,0.8); opacity: 0;
     }
+    .social-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 10px; }
+    .social-icon { color: #555; font-size: 1.2rem; transition: color 0.3s; }
+    .social-icon:hover { color: white; }
+    .copyright { color: #444; font-size: 0.75rem; }
 
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-    }
-
-    .social-icon {
-      color: var(--text-sec);
-      font-size: 1.3rem;
-      transition: color 0.3s, transform 0.3s;
-    }
-    .social-icon:hover { color: white; transform: translateY(-3px); }
-
-    .copyright {
-      color: #555;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-    .copyright span { color: #777; }
-
-    /* ===========================
-       RESPONSIVE BREAKPOINTS
-    ============================ */
-    @media (max-width: 1024px) {
-      .hero { padding-top: 120px; }
-      h1 { max-width: 80%; }
-    }
-
+    /* Mobile Tweaks */
     @media (max-width: 480px) {
-      nav { padding: 20px 24px; }
-      .hero { padding-top: 110px; padding-bottom: 40px; }
-      .tagline { font-size: 0.75rem; margin-bottom: 16px; }
-      h1 { line-height: 1.15; margin-bottom: 20px; }
-      p { font-size: 1rem; margin-bottom: 32px; padding: 0 10px; }
-      
-      .cta-button {
-        width: 100%; max-width: 280px; justify-content: center; padding: 16px 24px;
-      }
-      
-      .site-footer { padding: 30px 20px; }
+      h1 { margin-bottom: 15px; } 
+      p { margin-bottom: 30px; padding: 0 10px; }
+      .nav-contact { padding: 6px 12px; border: 1px solid var(--border); border-radius: 20px; }
     }
+    @media (max-height: 500px) { body { height: auto; overflow-y: auto; padding-bottom: 20px; } nav { position: relative; } }
   </style>
 </head>
 <body>
@@ -238,54 +112,66 @@
   <div class="grid-bg"></div>
 
   <nav>
-    <div class="brand">
-      <div class="brand-dot"></div>
-      LUVIIO
-    </div>
+    <div class="brand"><div class="brand-dot"></div> LUVIIO</div>
     <a href="mailto:contact@luviio.in" class="nav-contact">Contact</a>
   </nav>
 
   <section class="hero">
-    <div class="tagline">The New Standard</div>
+    <div class="tagline">The Trust Layer</div>
     
-    <h1>Infrastructure for <br> Verified Listings.</h1>
+    <h1>Infrastructure for <br> Verified Markets.</h1>
     
-    <p>We are solving the trust deficit in online marketplaces. API-first, transparent, and built for the future.</p>
+    <p>We verify, secure, and streamline <br> marketplace infrastructure.</p>
 
-    <a href="waitlist.html" class="cta-button">
-      Join Exclusive Waitlist <i class="fa-solid fa-arrow-right"></i>
-    </a>
+    <div class="cta-container">
+      <a href="/waitlist/" id="main-cta" class="cta-button">
+        <span id="cta-text">Join Waitlist</span> 
+        <i id="cta-icon" class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
   </section>
 
   <footer class="site-footer">
-    <div class="footer-content">
-      <div class="social-links">
-        <a href="https://x.com/LUVIIO_in" target="_blank" aria-label="X (Twitter)" class="social-icon">
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
-        <a href="https://www.instagram.com/luviio_in" target="_blank" aria-label="Instagram" class="social-icon">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.youtube.com/@luviio_in" target="_blank" aria-label="YouTube" class="social-icon">
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-      </div>
-      
-      <div class="copyright">
-        &copy; 2026 Luviio Technologies. <span>All rights reserved.</span>
-      </div>
+    <div class="social-links">
+      <a href="https://x.com/LUVIIO_in" target="_blank" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.instagram.com/luviio_in" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@luviio_in" target="_blank" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
     </div>
+    <div class="copyright">&copy; 2026 Luviio Technologies.</div>
   </footer>
 
   <script>
-    // GSAP Entrance Animation
-    const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1.2 } });
+    // --- SUPABASE LOGIC ---
+    const sbUrl = 'https://enqcujmzxtrbfkaungpm.supabase.co';
+    const sbKey = 'sb_publishable_0jeCSzd3NkL-RlQn8X-eTA_-xH03xVd';
+    const supabaseClient = supabase.createClient(sbUrl, sbKey);
 
-    // Staggered reveal (Added footer to animation)
-    tl.to(".tagline", { opacity: 1, y: 0, duration: 1 })
+    async function checkUser() {
+      try {
+        const { data: { session } } = await supabaseClient.auth.getSession();
+        
+        const ctaBtn = document.getElementById('main-cta');
+        
+        if (session) {
+          // ✅ User Logged In -> Go to Dashboard
+          console.log("User verified");
+          ctaBtn.href = "https://luviio.in/dashboard";
+          document.getElementById('cta-text').innerText = "Dashboard";
+          document.getElementById('cta-icon').className = "fa-solid fa-layer-group";
+        } else {
+          // ✅ User Logged Out -> Go to Waitlist Page
+          ctaBtn.href = "/waitlist/";
+        }
+      } catch (e) { console.error(e); }
+    }
+    checkUser();
+
+    // --- ANIMATIONS ---
+    const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
+    tl.to(".tagline", { opacity: 1, y: 0, delay: 0.2 })
       .to("h1", { opacity: 1, y: 0 }, "-=0.8")
       .to("p", { opacity: 1, y: 0 }, "-=0.8")
-      .to(".cta-button", { opacity: 1, y: 0 }, "-=0.8")
+      .to(".cta-container", { opacity: 1, y: 0 }, "-=0.8")
       .to(".site-footer", { opacity: 1, y: 0 }, "-=0.8");
   </script>
 
