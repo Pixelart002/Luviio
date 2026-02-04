@@ -1,150 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   
-  <title>Luviio - Building the Trust Layer</title>
-  <meta name="description" content="Luviio is the verified infrastructure and trust layer for modern online listings. Join the future of secure marketplaces.">
-  <meta name="keywords" content="Luviio, Trust Layer, Marketplace Infrastructure, Real Estate Verification, Verified Listings">
-  <link rel="canonical" href="https://www.luviio.in/">
-  
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.luviio.in/">
-  <meta property="og:title" content="Luviio - The Trust Layer">
-  <meta property="og:description" content="Infrastructure for Verified Markets. We verify, secure, and streamline marketplace operations.">
-  <meta property="og:image" content="https://www.luviio.in/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#030303">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self'; 
+    script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; 
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+    font-src 'self' https://fonts.gstatic.com; 
+    connect-src 'self' https://enqcujmzxtrbfkaungpm.supabase.co; 
+    img-src 'self' data:; 
+    object-src 'none'; 
+    base-uri 'self';
+    upgrade-insecure-requests;
+  ">
 
+  <link rel="dns-prefetch" href="https://enqcujmzxtrbfkaungpm.supabase.co">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  
+  <link rel="preconnect" href="https://enqcujmzxtrbfkaungpm.supabase.co" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <title>Luviio - The Trust Layer for Marketplaces</title>
+  <meta name="description" content="Luviio is the verified operating system for online listings. We secure and streamline marketplace infrastructure with an API-first approach.">
+  <meta name="keywords" content="Luviio, Trust Layer, Marketplace OS, Real Estate Verification, PropTech India, API First">
+  <meta name="author" content="Luviio Technologies">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://www.luviio.in/">
+  <meta name="theme-color" content="#050505">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Luviio">
+  <meta property="og:title" content="Luviio - The Trust Layer">
+  <meta property="og:description" content="Infrastructure for Verified Markets. Secure. API-First.">
+  <meta property="og:url" content="https://www.luviio.in/">
+  <meta property="og:image" content="https://www.luviio.in/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Luviio Platform Interface">
   
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@LUVIIO_in">
+  <meta name="twitter:creator" content="@LUVIIO_in">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Luviio",
-    "url": "https://www.luviio.in",
-    "logo": "https://www.luviio.in/logo.png",
-    "sameAs": [
-      "https://x.com/LUVIIO_in",
-      "https://www.instagram.com/luviio_in",
-      "https://www.youtube.com/@luviio_in"
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Luviio OS",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Cloud",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "INR"
+        },
+        "description": "The operating system for verified listings and marketplace infrastructure."
+      },
+      {
+        "@type": "Organization",
+        "name": "Luviio",
+        "url": "https://www.luviio.in",
+        "logo": "https://www.luviio.in/images/logo.png",
+        "sameAs": [
+          "https://x.com/LUVIIO_in",
+          "https://www.instagram.com/luviio_in",
+          "https://www.youtube.com/@luviio_in"
+        ]
+      }
     ]
   }
   </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
-    /* --- CORE SETUP --- */
-    :root { --bg: #030303; --text: #fff; --gray: #888; --border: rgba(255,255,255,0.1); }
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    /* --- CRITICAL CSS --- */
+    :root { 
+      --bg: #050505; --text: #fff; --gray: #9ca3af; --border: rgba(255,255,255,0.08); 
+      --accent: #3b82f6; --accent-glow: rgba(59, 130, 246, 0.4);
+      --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    ::selection { background: rgba(59, 130, 246, 0.3); color: white; }
 
     body {
       background: var(--bg); color: var(--text);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      height: 100dvh; width: 100vw; overflow: hidden; 
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      min-height: 100dvh; width: 100vw; overflow-x: hidden; 
       display: flex; flex-direction: column; position: relative;
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* Performance: Hardware Accelerated BG */
     .grid-bg {
-      position: absolute; inset: 0; z-index: -1;
+      position: fixed; inset: 0; z-index: -1;
       background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 50px 50px; opacity: 0.08; pointer-events: none;
-      will-change: transform; /* Performance Boost */
+      background-size: 60px 60px; opacity: 0.1; pointer-events: none;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+      transform: translateZ(0); /* GPU Force */
     }
 
-    /* --- NAV & LOGO --- */
+    /* NAV */
     nav {
-      width: 100%; padding: 20px 24px;
+      width: 100%; padding: 24px 32px;
       display: flex; justify-content: space-between; align-items: center;
-      position: absolute; top: 0; left: 0; z-index: 10;
+      position: absolute; top: 0; left: 0; z-index: 50;
     }
     
-    .brand-link { text-decoration: none; display: flex; align-items: center; }
-    
-    /* Optimized Logo Styling */
-    .brand-logo {
-      height: 32px; /* Set fixed height to prevent Layout Shift (CLS) */
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
+    .brand-link { text-decoration: none; display: flex; align-items: center; gap: 12px; }
+    .brand-logo { height: 26px; width: auto; object-fit: contain; display: block; }
+    .brand-text { font-weight: 800; font-size: 1.15rem; color: #fff; letter-spacing: -0.02em; }
 
     .nav-contact { 
-      color: var(--gray); text-decoration: none; font-size: 0.85rem; font-weight: 600; 
-      transition: color 0.2s;
+      color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 600; 
+      transition: color 0.2s; 
     }
     .nav-contact:hover { color: #fff; }
 
-    /* --- HERO --- */
-    .hero {
+    /* MAIN HERO */
+    main.hero {
       flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
       text-align: center; padding: 0 20px; width: 100%;
     }
 
     .tagline {
-      font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: #666;
-      border: 1px solid var(--border); padding: 4px 10px; border-radius: 50px;
-      margin-bottom: 20px; opacity: 0;
+      font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: #777;
+      border: 1px solid var(--border); padding: 6px 14px; border-radius: 50px;
+      margin-bottom: 24px; opacity: 0; background: rgba(255,255,255,0.02);
+      will-change: transform, opacity;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 10vw, 5rem);
-      line-height: 1.1; font-weight: 800; letter-spacing: -0.03em;
-      margin-bottom: 20px;
-      background: linear-gradient(to bottom, #fff, #888);
+      font-size: clamp(2.5rem, 8vw, 5.5rem);
+      line-height: 1.05; font-weight: 800; letter-spacing: -0.04em;
+      margin-bottom: 24px;
+      background: linear-gradient(180deg, #fff 15%, #666 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      opacity: 0;
-      will-change: opacity, transform;
+      opacity: 0; will-change: transform, opacity;
+      max-width: 900px;
     }
 
     p {
-      color: var(--gray); font-size: clamp(0.95rem, 3vw, 1.2rem);
-      max-width: 500px; line-height: 1.5; margin-bottom: 35px;
-      opacity: 0;
+      color: var(--gray); font-size: clamp(1rem, 3vw, 1.25rem);
+      max-width: 540px; line-height: 1.6; margin-bottom: 40px;
+      opacity: 0; will-change: transform, opacity;
     }
 
-    /* CTA Button */
-    .cta-container { opacity: 0; }
+    /* CTA BUTTON (FLICKER FREE) */
+    .cta-container { opacity: 0; position: relative; }
+    
     .cta-button {
       background: white; color: black;
-      padding: 16px 32px; border-radius: 100px;
-      text-decoration: none; font-weight: 700; font-size: 0.95rem;
-      display: flex; align-items: center; gap: 10px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 16px 36px; border-radius: 100px;
+      text-decoration: none; font-weight: 700; font-size: 1rem;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+      position: relative; overflow: hidden;
     }
-    .cta-button:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(255,255,255,0.2); }
-    .cta-button:active { transform: scale(0.95); }
     
-    /* SVG Icons (Faster than FontAwesome) */
-    .icon-svg { width: 16px; height: 16px; fill: currentColor; }
+    .cta-button:hover { 
+      transform: translateY(-2px); 
+      box-shadow: 0 10px 40px rgba(255,255,255,0.15); 
+    }
+    .cta-button:active { transform: scale(0.97); }
 
-    /* --- FOOTER --- */
-    .site-footer {
-      width: 100%; padding: 20px; text-align: center;
+    .icon-svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* FOOTER (Optimized Rendering) */
+    footer.site-footer {
+      width: 100%; padding: 30px 20px; text-align: center;
       border-top: 1px solid var(--border);
-      background: rgba(3,3,3,0.8); opacity: 0;
+      background: rgba(3,3,3,0.6); opacity: 0;
       backdrop-filter: blur(10px);
+      content-visibility: auto; /* Browser won't render if off-screen */
     }
-    .social-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 10px; }
-    .social-icon { color: #555; width: 20px; height: 20px; transition: color 0.3s; display: inline-block; }
-    .social-icon svg { width: 100%; height: 100%; fill: currentColor; }
-    .social-icon:hover { color: white; }
-    .copyright { color: #444; font-size: 0.75rem; }
+    .social-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 15px; }
+    .social-icon { color: #666; width: 22px; height: 22px; transition: 0.3s; display: block; }
+    .social-icon:hover { color: white; transform: translateY(-3px); }
+    .copyright { color: #555; font-size: 0.75rem; font-weight: 500; }
 
-    /* Mobile Tweaks */
     @media (max-width: 480px) {
+      nav { padding: 20px; }
       h1 { margin-bottom: 15px; } 
-      p { margin-bottom: 30px; padding: 0 10px; }
-      .nav-contact { padding: 6px 12px; border: 1px solid var(--border); border-radius: 20px; }
+      p { margin-bottom: 30px; padding: 0 16px; }
     }
-    @media (max-height: 500px) { body { height: auto; overflow-y: auto; padding-bottom: 20px; } nav { position: relative; } }
   </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
 </head>
 <body>
 
@@ -152,20 +205,13 @@
 
   <nav>
     <a href="/" class="brand-link" aria-label="Luviio Home">
-      <img 
-        src="/images/logo.png" 
-        alt="LUVIIO Logo" 
-        class="brand-logo" 
-        width="120" 
-        height="32" 
-        fetchpriority="high"
-        decoding="async"
-      >
+      <img src="/images/logo.png" alt="Luviio Logo" class="brand-logo" width="120" height="32" fetchpriority="high">
+      <span class="brand-text">LUVIIO</span>
     </a>
     <a href="mailto:contact@luviio.in" class="nav-contact">Contact</a>
   </nav>
 
-  <section class="hero">
+  <main class="hero">
     <div class="tagline">The Trust Layer</div>
     
     <h1>Infrastructure for <br> Verified Markets.</h1>
@@ -175,68 +221,73 @@
     <div class="cta-container">
       <a href="/waitlist/" id="main-cta" class="cta-button">
         <span id="cta-text">Join Waitlist</span> 
-        <svg id="cta-icon" class="icon-svg" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+        <svg id="cta-icon" class="icon-svg" viewBox="0 0 448 512" aria-hidden="true">
            <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
         </svg>
       </a>
     </div>
-  </section>
+  </main>
 
   <footer class="site-footer">
     <div class="social-links">
-      <a href="https://x.com/LUVIIO_in" target="_blank" class="social-icon" aria-label="X (Twitter)">
-        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/luviio_in" target="_blank" class="social-icon" aria-label="Instagram">
-        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.9 0-184.9zm-47.8 195.5c-1.1 24-8.7 45-30.7 67-21.6 21.6-43.2 29.5-67 30.7-35.5 1.8-141.6 1.8-177.1 0-24-1.1-45-8.7-67-30.7-21.6-21.6-29.5-43.2-30.7-67-1.8-35.5-1.8-141.6 0-177.1 1.1-24 8.7-45 30.7-67 21.6-21.6 43.2-29.5 67-30.7 35.5-1.8 141.6-1.8 177.1 0 24 1.1 45 8.7 67 30.7 21.6 21.6 29.5 43.2 30.7 67 1.8 35.5 1.8 141.6 0 177.1z"/></svg>
-      </a>
-      <a href="https://www.youtube.com/@luviio_in" target="_blank" class="social-icon" aria-label="YouTube">
-        <svg viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 42.155 48.284 48.472C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.852 48.284-48.472 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
-      </a>
+      <a href="https://x.com/LUVIIO_in" target="_blank" class="social-icon" aria-label="X"><svg viewBox="0 0 512 512" fill="currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a>
+      <a href="https://www.instagram.com/luviio_in" target="_blank" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.9 0-184.9zm-47.8 195.5c-1.1 24-8.7 45-30.7 67-21.6 21.6-43.2 29.5-67 30.7-35.5 1.8-141.6 1.8-177.1 0-24-1.1-45-8.7-67-30.7-21.6-21.6-29.5-43.2-30.7-67-1.8-35.5-1.8-141.6 0-177.1 1.1-24 8.7-45 30.7-67 21.6-21.6 43.2-29.5 67-30.7 35.5-1.8 141.6-1.8 177.1 0 24 1.1 45 8.7 67 30.7 21.6 21.6 29.5 43.2 30.7 67 1.8 35.5 1.8 141.6 0 177.1z"/></svg></a>
+      <a href="https://www.youtube.com/@luviio_in" target="_blank" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 576 512" fill="currentColor"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 42.155 48.284 48.472C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.852 48.284-48.472 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
     </div>
     <div class="copyright">&copy; 2026 Luviio Technologies.</div>
   </footer>
 
   <script>
-    // --- SUPABASE LOGIC (Optimized) ---
-    const sbUrl = 'https://enqcujmzxtrbfkaungpm.supabase.co';
-    const sbKey = 'sb_publishable_0jeCSzd3NkL-RlQn8X-eTA_-xH03xVd';
-    const supabaseClient = supabase.createClient(sbUrl, sbKey);
-
-    // Dashboard Icon Path (SVG path for 'Layer Group')
-    const dashboardIconPath = "M0 224c0-17.7 14.3-32 32-32s32 14.3 32 32l0 148.2L249.4 466.4c10.5 4.7 17.6 14.2 18.5 25.6s-4.8 22.1-14.7 28.1l-224 136c-8.9 5.4-19.9 5.4-28.8 0l-224-136c-9.9-6-15.6-16.8-14.7-28.1s8-20.9 18.5-25.6L0 372.2 0 224zM320 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 148.2L569.4 306.4c10.5 4.7 17.6 14.2 18.5 25.6s-4.8 22.1-14.7 28.1l-224 136c-8.9 5.4-19.9 5.4-28.8 0l-224-136c-9.9-6-15.6-16.8-14.7-28.1s8-20.9 18.5-25.6L320 212.2 320 64z";
-
-    async function checkUser() {
-      try {
-        const { data: { session } } = await supabaseClient.auth.getSession();
-        const ctaBtn = document.getElementById('main-cta');
-        const ctaText = document.getElementById('cta-text');
-        const ctaIcon = document.getElementById('cta-icon'); // The SVG element
-        
-        if (session) {
-          console.log("User verified");
-          ctaBtn.href = "https://luviio.in/dashboard";
-          ctaText.innerText = "Dashboard";
-          // Replace SVG content for dashboard icon
-          ctaIcon.innerHTML = `<path d="${dashboardIconPath}"/>`;
-        } else {
-          ctaBtn.href = "/waitlist/";
-        }
-      } catch (e) { console.error(e); }
-    }
-    
-    // Execute immediately after DOM is ready
     document.addEventListener("DOMContentLoaded", () => {
-        checkUser();
-        // --- ANIMATIONS ---
-        const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
-        tl.to(".tagline", { opacity: 1, y: 0, delay: 0.1 })
-          .to("h1", { opacity: 1, y: 0 }, "-=0.8")
-          .to("p", { opacity: 1, y: 0 }, "-=0.8")
-          .to(".cta-container", { opacity: 1, y: 0 }, "-=0.8")
-          .to(".site-footer", { opacity: 1, y: 0 }, "-=0.8");
+        // --- CONFIG ---
+        const SB_URL = 'https://enqcujmzxtrbfkaungpm.supabase.co';
+        const SB_KEY = 'sb_publishable_0jeCSzd3NkL-RlQn8X-eTA_-xH03xVd';
+        const DASH_ICON = "M0 224c0-17.7 14.3-32 32-32s32 14.3 32 32l0 148.2L249.4 466.4c10.5 4.7 17.6 14.2 18.5 25.6s-4.8 22.1-14.7 28.1l-224 136c-8.9 5.4-19.9 5.4-28.8 0l-224-136c-9.9-6-15.6-16.8-14.7-28.1s8-20.9 18.5-25.6L0 372.2 0 224zM320 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 148.2L569.4 306.4c10.5 4.7 17.6 14.2 18.5 25.6s-4.8 22.1-14.7 28.1l-224 136c-8.9 5.4-19.9 5.4-28.8 0l-224-136c-9.9-6-15.6-16.8-14.7-28.1s8-20.9 18.5-25.6L320 212.2 320 64z";
+
+        // --- AUTH STATE MACHINE (Optimization: Run Parallel to Animation) ---
+        async function runAuthCheck() {
+             // Defer Supabase Logic until needed or idle
+             if (typeof supabase === 'undefined') {
+                setTimeout(runAuthCheck, 100); return;
+             }
+
+             const client = supabase.createClient(SB_URL, SB_KEY);
+             try {
+                const { data: { session } } = await client.auth.getSession();
+                if (session) {
+                    // Update to Dashboard State
+                    const btn = document.getElementById('main-cta');
+                    const txt = document.getElementById('cta-text');
+                    const icon = document.getElementById('cta-icon');
+                    
+                    txt.innerText = "Dashboard";
+                    btn.href = "https://luviio.in/dashboard";
+                    icon.innerHTML = `<path d="${DASH_ICON}"/>`;
+                }
+             } catch (e) { /* Fail silently to Guest mode */ }
+        }
+
+        // --- ENTRANCE ANIMATION (GSAP) ---
+        function animateIn() {
+            if (typeof gsap !== 'undefined') {
+                const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1.2 } });
+                tl.to(".tagline", { opacity: 1, y: 0, delay: 0.1 })
+                  .to("h1", { opacity: 1, y: 0 }, "-=0.9")
+                  .to("p", { opacity: 1, y: 0 }, "-=0.9")
+                  .to(".cta-container", { opacity: 1, y: 0 }, "-=0.9")
+                  .to(".site-footer", { opacity: 1, y: 0 }, "-=0.9");
+            } else {
+                // Vanilla JS Fallback
+                document.querySelectorAll('.tagline, h1, p, .cta-container, .site-footer').forEach(el => {
+                    el.style.opacity = 1;
+                });
+            }
+        }
+
+        // Start Processes
+        runAuthCheck();
+        setTimeout(animateIn, 50); // Small buffer ensures styles parsed
     });
   </script>
-
 </body>
 </html>

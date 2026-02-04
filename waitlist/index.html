@@ -7,36 +7,21 @@
   <title>Luviio - The Operating System for Listings</title>
   <meta name="description" content="Luviio is rebuilding the marketplace infrastructure. Verified, API-first, and secure. Join the exclusive waitlist for the future of listings.">
   <link rel="canonical" href="https://www.luviio.in/">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#050505">
+
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Luviio - The Trust Layer for Marketplaces">
+  <meta property="og:title" content="Luviio - The Trust Layer">
   <meta property="og:description" content="Infrastructure for verified markets. Secure. API-First.">
   <meta property="og:url" content="https://www.luviio.in/">
-  <meta property="og:site_name" content="Luviio">
   <meta property="og:image" content="https://www.luviio.in/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@LUVIIO_in">
 
-  <meta name="theme-color" content="#050505">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Luviio">
-  
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  <link rel="manifest" href="/manifest.json">
-
-  <link rel="preconnect" href="https://enqcujmzxtrbfkaungpm.supabase.co" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self'; 
@@ -47,47 +32,43 @@
     img-src 'self' data:; 
     object-src 'none'; 
     base-uri 'self';
+    upgrade-insecure-requests;
   ">
+  
+  <link rel="preconnect" href="https://enqcujmzxtrbfkaungpm.supabase.co" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "SoftwareApplication",
+        "name": "Luviio OS",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Cloud",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+        "description": "The operating system for verified listings."
+      },
+      {
         "@type": "Organization",
-        "@id": "https://www.luviio.in/#organization",
         "name": "Luviio Technologies",
-        "url": "https://www.luviio.in/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.luviio.in/images/logo.png",
-          "width": 112,
-          "height": 112
-        },
+        "url": "https://www.luviio.in",
+        "logo": "https://www.luviio.in/images/logo.png",
         "sameAs": [
           "https://x.com/LUVIIO_in",
           "https://www.instagram.com/luviio_in",
           "https://www.youtube.com/@luviio_in"
         ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://www.luviio.in/#website",
-        "url": "https://www.luviio.in/",
-        "name": "Luviio",
-        "publisher": { "@id": "https://www.luviio.in/#organization" },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.luviio.in/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
       }
     ]
   }
   </script>
 
   <style>
-    /* --- DESIGN SYSTEM --- */
+    /* --- DESIGN TOKENS --- */
     :root { 
       --bg: #050505; --surface: #0f0f0f; --border: #27272a; 
       --text: #fff; --text-dim: #a1a1aa; 
@@ -99,58 +80,65 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     ::selection { background: rgba(59, 130, 246, 0.3); color: white; }
 
+    /* LAYOUT: FORCE FULL HEIGHT (NO SCROLL ON MOBILE) */
     body { 
       background: var(--bg); color: var(--text); 
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-      min-height: 100dvh; display: flex; flex-direction: column; 
-      overflow-x: hidden; -webkit-font-smoothing: antialiased; 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+      height: 100dvh; width: 100vw; overflow: hidden; 
+      display: flex; flex-direction: column; 
+      -webkit-font-smoothing: antialiased; 
     }
 
+    /* GRID BG (GPU ACCELERATED) */
     .grid-bg { 
       position: absolute; inset: 0; z-index: -1; 
       background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); 
       background-size: 80px 80px; opacity: 0.12; 
       mask-image: radial-gradient(circle at center, black 40%, transparent 80%); 
-      pointer-events: none; will-change: transform;
+      pointer-events: none; transform: translateZ(0);
     }
     
     /* NAV */
     nav { 
-      width: 100%; padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; 
-      position: fixed; top: 0; z-index: 50; 
-      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.03);
-      transition: padding 0.3s;
+      width: 100%; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; 
+      z-index: 50; flex-shrink: 0;
     }
     
     .brand-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .logo-img { height: 26px; width: auto; display: block; filter: drop-shadow(0 0 10px rgba(255,255,255,0.1)); }
     .brand-text { font-weight: 800; font-size: 1.15rem; color: #fff; letter-spacing: -0.03em; }
     
-    .nav-links { display: flex; gap: 24px; }
     .nav-link { 
       color: var(--text-dim); text-decoration: none; font-size: 0.9rem; font-weight: 500; 
-      transition: color 0.2s; position: relative;
+      transition: color 0.2s; 
     } 
     .nav-link:hover { color: #fff; }
 
-    /* HERO */
+    /* HERO: FLEXIBLE LAYOUT */
     .hero { 
-      flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; 
-      text-align: center; padding: 140px 20px 80px; max-width: 1200px; margin: 0 auto; width: 100%; 
+      flex: 1; /* Fills remaining space */
+      display: flex; flex-direction: column; 
+      justify-content: center; /* Vertically Center Content */
+      align-items: center;
+      text-align: center; padding: 0 20px; width: 100%; 
+      position: relative;
     }
     
+    /* Content wrapper */
+    .hero-content {
+      display: flex; flex-direction: column; align-items: center;
+      margin-bottom: auto; margin-top: auto; /* Centers in available space */
+    }
+
     .pill { 
       border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); 
-      padding: 8px 18px; border-radius: 100px; font-size: 0.8rem; color: var(--text-dim); 
-      margin-bottom: 28px; display: inline-block; backdrop-filter: blur(10px);
-      font-weight: 500; letter-spacing: 0.02em;
-      transition: 0.3s ease; cursor: default;
+      padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; color: var(--text-dim); 
+      margin-bottom: 24px; display: inline-block; backdrop-filter: blur(10px);
+      letter-spacing: 0.02em;
     }
-    .pill:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
     
     h1 { 
-      font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 800; margin-bottom: 24px; 
+      font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800; margin-bottom: 20px; 
       line-height: 1.05; letter-spacing: -0.04em;
       background: linear-gradient(180deg, #fff 10%, #888 100%); 
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
@@ -159,101 +147,89 @@
     }
     
     p { 
-      font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-dim); 
-      max-width: 540px; line-height: 1.6; margin-bottom: 40px; 
+      font-size: clamp(1rem, 2vw, 1.2rem); color: var(--text-dim); 
+      max-width: 500px; line-height: 1.6; margin-bottom: 32px; 
     }
 
-    /* PREMIUM FORM */
-    .form-container { width: 100%; max-width: 480px; position: relative; perspective: 1000px; }
+    /* FORM */
+    .form-container { width: 100%; max-width: 440px; }
     
     .input-wrapper { 
       background: rgba(20, 20, 20, 0.6); border: 1px solid rgba(255,255,255,0.08); 
-      border-radius: 16px; padding: 6px; display: flex; gap: 8px; position: relative;
-      transition: all 0.4s var(--ease-elastic); 
-      backdrop-filter: blur(20px);
+      border-radius: 16px; padding: 5px; display: flex; gap: 8px; position: relative;
+      transition: all 0.4s var(--ease-elastic); backdrop-filter: blur(20px);
     }
     
     .input-wrapper:focus-within { 
-      border-color: var(--accent); 
-      box-shadow: 0 0 40px var(--accent-glow); 
-      transform: translateY(-2px) scale(1.01);
-      background: rgba(20, 20, 20, 0.9);
+      border-color: var(--accent); box-shadow: 0 0 40px var(--accent-glow); 
+      transform: translateY(-2px); background: rgba(20, 20, 20, 0.9);
     }
     
     input { 
       flex: 1; background: transparent; border: none; outline: none; 
-      padding: 14px 20px; color: white; font-size: 1rem; width: 100%; font-family: inherit;
+      padding: 12px 16px; color: white; font-size: 1rem; width: 100%; font-family: inherit;
     }
     input::placeholder { color: #52525b; transition: opacity 0.2s; }
-    input:focus::placeholder { opacity: 0.5; }
     
-    /* BUTTON */
     button { 
       background: white; color: black; border: none; border-radius: 12px; 
-      padding: 0 32px; height: 52px; font-weight: 600; cursor: pointer; 
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-      font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 10px;
-      position: relative; overflow: hidden;
+      padding: 0 24px; height: 50px; font-weight: 600; cursor: pointer; 
+      transition: all 0.3s; font-size: 0.95rem; 
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      white-space: nowrap;
     }
-    
-    button::after {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0));
-      opacity: 0; transition: 0.2s;
-    }
-    button:hover::after { opacity: 0.2; }
-    
-    button:hover:not(:disabled) { 
-      transform: translateY(-2px); 
-      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2); 
-    }
+    button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2); }
     button:active:not(:disabled) { transform: scale(0.96); }
-    button:disabled { opacity: 0.7; filter: grayscale(1); cursor: not-allowed; }
 
-    /* TOAST */
-    .toast {
-      position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%) translateY(40px);
-      background: rgba(10, 10, 10, 0.9); border: 1px solid rgba(255,255,255,0.1);
-      padding: 14px 28px; border-radius: 100px;
-      display: flex; align-items: center; gap: 12px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-      font-size: 0.95rem; color: #fff; z-index: 100; 
-      opacity: 0; pointer-events: none; backdrop-filter: blur(20px);
-      transition: all 0.6s var(--ease-elastic);
+    /* SOCIAL BAR (BOTTOM FIXED / FLEX) */
+    .social-bar {
+      margin-top: auto; /* Pushes to bottom */
+      padding-bottom: 30px;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+      width: 100%;
     }
-    .toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
-    .toast svg { width: 20px; height: 20px; color: var(--success); }
-    .toast.error svg { color: var(--error); }
-
-    /* SPINNER */
-    .spinner {
-      width: 18px; height: 18px; border: 2px solid rgba(0,0,0,0.1); 
-      border-left-color: #000; border-radius: 50%; 
-      animation: spin 0.8s linear infinite; display: none;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* FOOTER */
-    .site-footer { 
-      width: 100%; padding: 60px 20px; text-align: center; 
-      border-top: 1px solid rgba(255,255,255,0.03); 
-    }
-    .social-links { display: flex; gap: 30px; justify-content: center; margin-bottom: 24px; }
+    
+    .social-links { display: flex; gap: 28px; justify-content: center; }
+    
     .social-icon { 
-      color: var(--text-dim); width: 24px; height: 24px; transition: 0.3s; 
+      color: var(--text-dim); width: 22px; height: 22px; transition: 0.3s; 
       display: flex; align-items: center; justify-content: center;
     } 
     .social-icon:hover { color: #fff; transform: translateY(-4px) scale(1.1); filter: drop-shadow(0 0 8px rgba(255,255,255,0.3)); }
+    .social-icon svg { width: 100%; height: 100%; fill: currentColor; }
     
-    .fade-in { opacity: 0; transform: translateY(30px); }
+    .copyright { color: #444; font-size: 0.75rem; }
 
+    /* TOAST */
+    .toast {
+      position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px);
+      background: rgba(10, 10, 10, 0.95); border: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 24px; border-radius: 100px;
+      display: flex; align-items: center; gap: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      font-size: 0.9rem; color: #fff; z-index: 100; 
+      opacity: 0; pointer-events: none; backdrop-filter: blur(20px);
+      transition: all 0.5s var(--ease-elastic);
+    }
+    .toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast svg { width: 18px; color: var(--success); }
+    .toast.error svg { color: var(--error); }
+
+    /* SPINNER */
+    .spinner { width: 18px; height: 18px; border: 2px solid rgba(0,0,0,0.1); border-left-color: #000; border-radius: 50%; animation: spin 0.8s linear infinite; display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .fade-in { opacity: 0; transform: translateY(20px); }
+
+    /* MOBILE OPTIMIZATIONS */
     @media (max-width: 480px) { 
-      nav { padding: 20px; }
-      .brand-text { display: block; } /* Show name on mobile too */
+      nav { padding: 16px 20px; }
       .input-wrapper { flex-direction: column; background: transparent; border: none; padding: 0; box-shadow: none !important; transform: none !important; } 
-      input { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; height: 56px; transition: 0.3s; } 
+      input { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; height: 52px; text-align: center; } 
       input:focus { border-color: var(--accent); background: rgba(20,20,20,0.9); }
-      button { width: 100%; height: 56px; } 
+      button { width: 100%; height: 52px; } 
+      .hero { padding-top: 80px; }
+      .social-bar { padding-bottom: 40px; }
     }
   </style>
 
@@ -269,61 +245,60 @@
       <img src="/images/logo.png" alt="Luviio Logo" class="logo-img">
       <span class="brand-text">LUVIIO</span>
     </a>
-    
-    <div class="nav-links">
-      <a href="/journal" class="nav-link" style="display:none;">Journal</a> 
-      <a href="mailto:contact@luviio.in" class="nav-link">Contact</a>
-    </div>
+    <a href="mailto:contact@luviio.in" class="nav-link">Contact</a>
   </nav>
 
-  <section class="hero">
-    <div class="pill fade-in">Waitlist Access Early 2026</div>
+  <div class="hero">
     
-    <h1 class="fade-in" fetchpriority="high">The Operating System <br> for Listings.</h1>
-    
-    <p class="fade-in">We are rebuilding the marketplace infrastructure. Verified, API-first, and secure by design.</p>
+    <div class="hero-content">
+      <div class="pill fade-in">Waitlist Access Early 2026</div>
+      
+      <h1 class="fade-in" fetchpriority="high">The Operating System <br> for Listings.</h1>
+      
+      <p class="fade-in">Rebuilding marketplace infrastructure. <br> Verified, API-first, and secure.</p>
 
-    <div class="form-container fade-in">
-      <form id="waitlistForm" novalidate>
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-        
-        <div class="input-wrapper">
-          <input 
-            type="email" 
-            id="email" 
-            placeholder="name@company.com" 
-            required 
-            autocomplete="email" 
-            spellcheck="false"
-          >
-          <button type="submit" id="submitBtn">
-            <span class="btn-text">Join Waitlist</span>
-            <div class="spinner"></div>
-          </button>
-        </div>
-      </form>
+      <div class="form-container fade-in">
+        <form id="waitlistForm" novalidate>
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          
+          <div class="input-wrapper">
+            <input 
+              type="email" 
+              id="email" 
+              placeholder="name@company.com" 
+              required 
+              autocomplete="email" 
+              spellcheck="false"
+            >
+            <button type="submit" id="submitBtn">
+              <span class="btn-text">Join Waitlist</span>
+              <div class="spinner"></div>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-  </section>
+
+    <div class="social-bar fade-in">
+      <div class="social-links">
+        <a href="https://x.com/LUVIIO_in" target="_blank" aria-label="X" class="social-icon">
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/luviio_in" target="_blank" aria-label="Instagram" class="social-icon">
+          <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.9 0-184.9zm-47.8 195.5c-1.1 24-8.7 45-30.7 67-21.6 21.6-43.2 29.5-67 30.7-35.5 1.8-141.6 1.8-177.1 0-24-1.1-45-8.7-67-30.7-21.6-21.6-29.5-43.2-30.7-67-1.8-35.5-1.8-141.6 0-177.1 1.1-24 8.7-45 30.7-67 21.6-21.6 43.2-29.5 67-30.7 35.5-1.8 141.6-1.8 177.1 0 24 1.1 45 8.7 67 30.7 21.6 21.6 29.5 43.2 30.7 67 1.8 35.5 1.8 141.6 0 177.1z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@luviio_in" target="_blank" aria-label="YouTube" class="social-icon">
+          <svg viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 42.155 48.284 48.472C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.852 48.284-48.472 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+        </a>
+      </div>
+      <div class="copyright">&copy; 2026 Luviio Tech.</div>
+    </div>
+  </div>
 
   <div id="toast" class="toast">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
     <span id="toastMsg">You're on the list.</span>
   </div>
-
-  <footer class="site-footer fade-in">
-    <div class="social-links">
-      <a href="https://x.com/LUVIIO_in" target="_blank" aria-label="X" class="social-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/luviio_in" target="_blank" aria-label="Instagram" class="social-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </a>
-      <a href="https://www.youtube.com/@luviio_in" target="_blank" aria-label="YouTube" class="social-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-      </a>
-    </div>
-    <div style="color:#666; font-size:0.75rem;">&copy; 2026 Luviio Technologies.</div>
-  </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -332,7 +307,7 @@
         const SB_KEY = 'sb_publishable_0jeCSzd3NkL-RlQn8X-eTA_-xH03xVd';
         let supabaseClient = null;
 
-        // --- STATE MACHINE (Robust Logic) ---
+        // --- STATE MACHINE ---
         const Machine = {
             state: 'IDLE',
             transitions: {
@@ -371,7 +346,7 @@
             if (state === 'SUCCESS') {
                 showToast(payload || "You're on the list.");
                 ui.email.value = "";
-                ui.email.blur(); // Close keyboard
+                ui.email.blur();
                 ui.btnText.innerText = "Joined";
                 gsap.to(ui.btn, { backgroundColor: "#22c55e", color: "#fff", duration: 0.3 });
             } else if (state === 'ERROR') {
@@ -382,7 +357,6 @@
         function showToast(msg, isError = false) {
             ui.toastMsg.innerText = msg;
             ui.toast.className = isError ? 'toast visible error' : 'toast visible';
-            // Sound effect hint (optional, kept silent for now)
             setTimeout(() => ui.toast.classList.remove('visible'), 4000);
         }
 
@@ -392,7 +366,6 @@
             if (ui.honey.value) return; 
 
             const email = ui.email.value.trim();
-            // Strict Regex
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 showToast("Please enter a valid email", true);
                 return;
@@ -400,7 +373,6 @@
 
             Machine.dispatch('SUBMIT');
 
-            // Lazy Load Supabase
             if (!supabaseClient && typeof supabase !== 'undefined') {
                 supabaseClient = supabase.createClient(SB_URL, SB_KEY);
             }
