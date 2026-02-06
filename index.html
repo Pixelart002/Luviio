@@ -55,32 +55,33 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareApplication",
-        "name": "Luviio OS",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Cloud",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "INR"
-        },
-        "description": "The operating system for verified listings and marketplace infrastructure."
-      },
-      {
         "@type": "Organization",
         "name": "Luviio",
         "url": "https://www.luviio.in",
-        "logo": "https://www.luviio.in/images/logo.png",
+        "logo": "https://www.luviio.in/static/logo.png",
         "sameAs": [
-          "https://x.com/LUVIIO_in",
-          "https://www.instagram.com/luviio_in",
-          "https://www.youtube.com/@luviio_in"
-        ]
+          "https://www.instagram.com/luviio_official",
+          "https://twitter.com/luviio"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-XXXXXXXXXX",
+          "contactType": "customer service"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "name": "Luviio - Real Estate & Business Setup",
+        "url": "https://www.luviio.in",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.luviio.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       }
     ]
   }
   </script>
-
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
