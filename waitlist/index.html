@@ -76,6 +76,12 @@
       --error: #ef4444; --success: #22c55e; 
       --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
+
+    /* 🔥 1. APP FEEL: REMOVE TAP HIGHLIGHT */
+    * {
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+    }
     
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     ::selection { background: rgba(59, 130, 246, 0.3); color: white; }
@@ -87,6 +93,16 @@
       height: 100dvh; width: 100vw; overflow: hidden; 
       display: flex; flex-direction: column; 
       -webkit-font-smoothing: antialiased; 
+
+      /* 🔥 2. DISABLE TEXT SELECTION */
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* 🔥 3. ALLOW TYPING (INPUTS ONLY) */
+    input {
+        user-select: text;
+        -webkit-user-select: text;
     }
 
     /* GRID BG (GPU ACCELERATED) */
@@ -291,7 +307,7 @@
           <svg viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 42.155 48.284 48.472C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.852 48.284-48.472 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
         </a>
       </div>
-      <div class="copyright">&copy; 2026 Luviio Tech.</div>
+      <div class="copyright">&copy; 2026 Luviio Technologies.</div>
     </div>
   </div>
 
